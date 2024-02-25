@@ -1,58 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using Mono.Data.Sqlite;
-using System.Data;
+using Npgsql;
 using UnityEngine;
 
 public class DataBase : MonoBehaviour
 {
 
-    [SerializeField] private int hitCount = 0;
+    // Información de conexión a la base de datos
+    private string host = "dumbo.db.elephantsql.com";
+    private string dbName = "BBDD_Quimikanimals";
+    private string userName = "yanick.garcia.7e6@itb.cat";
+    private string password = "5H_vo_Eppi7rQ3f2BxLlYHFVKbrw24Yia";
+    private NpgsqlConnection connection;
 
-    void Start() // 13
+    void Start()
     {
-        // Read all values from the table.
-        IDbConnection dbConnection = CreateAndOpenDatabase(); // 14
-        IDbCommand dbCommandReadValues = dbConnection.CreateCommand(); // 15
-        dbCommandReadValues.CommandText = "SELECT * FROM HitCountTableSimple"; // 16
-        IDataReader dataReader = dbCommandReadValues.ExecuteReader(); // 17
+        // Construir la cadena de conexión
+        string connectionString = $"Host={host};Username={userName};Password={password};Database={dbName}";
 
-        while (dataReader.Read()) // 18
+        // Intentar establecer la conexión
+        try
         {
-            // The `id` has index 0, our `hits` have the index 1.
-            hitCount = dataReader.GetInt32(1); // 19
+            connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            Debug.Log("Conexión establecida con éxito a la base de datos.");
+
+            // Ahora puedes ejecutar consultas SQL u otras operaciones en la base de datos aquí
+
+            // No olvides cerrar la conexión cuando hayas terminado de usarla
+            connection.Close();
         }
-
-        // Remember to always close the connection at the end.
-        dbConnection.Close(); // 20
-    }
-
-    private void OnMouseDown()
-    {
-        hitCount++;
-
-        // Insert hits into the table.
-        IDbConnection dbConnection = CreateAndOpenDatabase(); // 2
-        IDbCommand dbCommandInsertValue = dbConnection.CreateCommand(); // 9
-        dbCommandInsertValue.CommandText = "INSERT OR REPLACE INTO HitCountTableSimple (id, hits) VALUES (0, " + hitCount + ")"; // 10
-        dbCommandInsertValue.ExecuteNonQuery(); // 11
-
-        // Remember to always close the connection at the end.
-        dbConnection.Close(); // 12
-    }
-
-    private IDbConnection CreateAndOpenDatabase() // 3
-    {
-        // Open a connection to the database.
-        string dbUri = "URI=file:MyDatabase.sqlite"; // 4
-        IDbConnection dbConnection = new SqliteConnection(dbUri); // 5
-        dbConnection.Open(); // 6
-
-        // Create a table for the hit count in the database if it does not exist yet.
-        IDbCommand dbCommandCreateTable = dbConnection.CreateCommand(); // 6
-        dbCommandCreateTable.CommandText = "CREATE TABLE IF NOT EXISTS HitCountTableSimple (id INTEGER PRIMARY KEY, hits INTEGER )"; // 7
-        dbCommandCreateTable.ExecuteReader(); // 8
-
-        return dbConnection;
+        catch (NpgsqlException ex)
+        {
+            Debug.LogError($"Error al conectar a la base de datos: {ex.Message}");
+        }
     }
 }
