@@ -10,21 +10,48 @@ public class Database : MonoBehaviour
 
     void Start()
     {
+        //Limpiamos Las listas para los nuevos datos
+        soInfo.infoList.Clear();
+        soInfo.elementos.Clear();
+        soInfo.habitats.Clear();
+
+
         //Read all values from the table.
         IDbConnection dbConnection = CreateAndOpenDatabase();
         IDbCommand dbCommandReadValues = dbConnection.CreateCommand();
 
-        dbCommandReadValues.CommandText = "SELECT * FROM QUIMIKANIMALS";
+        dbCommandReadValues.CommandText = "SELECT num,elemento1,elemento2,nombre,altura,peso,habitat,descripcion FROM QUIMIKANIMALS";
         using (IDataReader reader = dbCommandReadValues.ExecuteReader())
         {
             while (reader.Read())
             {
-                soInfo.infoList.Add(new SOInfo.QuimikInfo(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt16(2), reader.GetString(3), reader.GetFloat(4), reader.GetFloat(5), reader.GetString(6)));
+                //Quimikanimal
+                soInfo.infoList.Add(new SOInfo.QuimikInfo(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetFloat(4), reader.GetFloat(5), reader.GetInt32(6), reader.GetString(7)));
+            }
+            reader.Close();
+        }
+        //IDataReader dataReader = dbCommandReadValues.ExecuteReader();
+        dbCommandReadValues.CommandText = "SELECT * FROM HABITAT";
+        using (IDataReader reader = dbCommandReadValues.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                soInfo.habitats.Add(new SOInfo.Habitats(reader.GetInt32(0), reader.GetString(1)));
+            }
+            reader.Close();
+        }
+        dbCommandReadValues.CommandText = "SELECT * FROM ELEMENTO";
+        using (IDataReader reader = dbCommandReadValues.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                soInfo.elementos.Add(new SOInfo.Elementos(reader.GetInt32(0), reader.GetString(1)));
             }
             reader.Close();
         }
 
-        IDataReader dataReader = dbCommandReadValues.ExecuteReader();
+
+        
         Debug.Log("Se conecto y se hizo");
         dbConnection.Close();
     }

@@ -19,8 +19,9 @@ public class SOInfo : ScriptableObject
         public string nombre;
         public float altura;
         public float peso;
+        public int habitat;
         public string descripcion;
-        public QuimikInfo(int num, int elem1, int elem2, string nombre, float altura, float peso, string desc)
+        public QuimikInfo(int num, int elem1, int elem2, string nombre, float altura, float peso, int habitat, string desc)
         {
             this.numero = num;
             this.elemento1 = elem1;
@@ -28,6 +29,7 @@ public class SOInfo : ScriptableObject
             this.nombre = nombre;
             this.altura = altura;
             this.peso = peso;
+            this.habitat = habitat;
             this.descripcion = desc;
         }
     }
