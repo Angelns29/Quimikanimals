@@ -49,10 +49,7 @@ public class UIManager : MonoBehaviour
         else if (dexMenu.activeInHierarchy == true) dexMenu.SetActive(false); 
         startMenu.SetActive(true);
     }
-    public void SeeDescription()
-    {
-        SceneManager.LoadScene(1);
-    }
+    
     public void ReturnToDex()
     {
         SceneManager.LoadScene(0);
