@@ -6,9 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Info")]
 public class SOInfo : ScriptableObject
 {
-    [SerializeField] private List<QuimikInfo> _infoList = new List<QuimikInfo>();
-    [SerializeField] private List<Elementos> _elementos = new List<Elementos>();
-    [SerializeField] private List<Habitats> _habitats = new List<Habitats>();
+    [SerializeField] public List<QuimikInfo> infoList = new List<QuimikInfo>();
+    [SerializeField] public List<Elementos> elementos = new List<Elementos>();
+    [SerializeField] public List<Habitats> habitats = new List<Habitats>();
 
     [Serializable]
     public class QuimikInfo
@@ -20,13 +20,29 @@ public class SOInfo : ScriptableObject
         public float altura;
         public float peso;
         public string descripcion;
+        public QuimikInfo(int num, int elem1, int elem2, string nombre, float altura, float peso, string desc)
+        {
+            this.numero = num;
+            this.elemento1 = elem1;
+            this.elemento2 = elem2;
+            this.nombre = nombre;
+            this.altura = altura;
+            this.peso = peso;
+            this.descripcion = desc;
+        }
     }
+    
 
     [Serializable]
     public class Elementos
     {
         public int num_elemento;
         public string tipo;
+        public Elementos(int num_elemento, string tipo)
+        {
+            this.num_elemento = num_elemento;
+            this.tipo = tipo;
+        }
     }
 
     [Serializable]
@@ -34,5 +50,10 @@ public class SOInfo : ScriptableObject
     {
         public int id_habitat;
         public string nombre;
+        public Habitats(int id_habitat, string nombre)
+        {
+            this.id_habitat = id_habitat;
+            this.nombre = nombre;
+        }
     }
 }
