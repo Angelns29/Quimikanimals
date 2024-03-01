@@ -25,6 +25,7 @@ public class UIQuimikdexDescription : MonoBehaviour
 
     [Header("Mapa")]
     public GameObject puntosMapa;
+    public TMP_Text nameMapText;
     public Image sprite2D;
 
     // Start is called before the first frame update
@@ -59,6 +60,7 @@ public class UIQuimikdexDescription : MonoBehaviour
                     }
                 }
 
+                nameMapText.text = bicho.nombre;
                 sprite2D.sprite = Resources.Load<Sprite>("Sprites/" + bicho.nombre);
 
                 for (int i = 1; i <= 6; i++)
