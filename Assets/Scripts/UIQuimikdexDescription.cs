@@ -19,10 +19,13 @@ public class UIQuimikdexDescription : MonoBehaviour
     public TMP_Text weightText;
     public TMP_Text descriptionText;
     public RawImage model3D;
+    private SoundManagerScript _soundManager;
+    List<GameObject> elements = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        _soundManager = SoundManagerScript.instance;
         SetInformation();
     }
 
@@ -43,6 +46,13 @@ public class UIQuimikdexDescription : MonoBehaviour
                 weightText.text = bicho.peso.ToString();
                 descriptionText.text = bicho.descripcion;
                 model3D.texture = (Texture)Resources.Load("Modelos/" + bicho.nombre);
+                foreach (var item in elements)
+                {
+                    if (item.name == bicho.elemento1.ToString())
+                    {
+                        item.SetActive(true);
+                    }
+                }
             }
         }
     }
@@ -61,5 +71,9 @@ public class UIQuimikdexDescription : MonoBehaviour
     {
         PlayerPrefs.SetInt("Bicho", 0);
         SceneManager.LoadScene(0);
+    }
+    public void PlaySound()
+    {
+        _soundManager.PlaySFX(nameText.text);
     }
 }
