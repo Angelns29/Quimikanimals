@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,6 +22,10 @@ public class UIQuimikdexDescription : MonoBehaviour
     public RawImage model3D;
     private SoundManagerScript _soundManager;
     List<GameObject> elements = new List<GameObject>();
+
+    [Header("Mapa")]
+    public GameObject puntosMapa;
+    public Image sprite2D;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +58,17 @@ public class UIQuimikdexDescription : MonoBehaviour
                         item.SetActive(true);
                     }
                 }
+
+                sprite2D.sprite = Resources.Load<Sprite>("Sprites/" + bicho.nombre);
+
+                for (int i = 1; i <= 6; i++)
+                {
+                    if ( i != bicho.habitat) GameObject.Find(i.ToString()).SetActive(false);
+                }
+                    
+                
+
+                mapMenu.SetActive(false);
             }
         }
     }

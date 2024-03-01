@@ -4902,7 +4902,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0000095367, y: 14.6537}
-  m_SizeDelta: {x: 541.871, y: 352.3353}
+  m_SizeDelta: {x: 400, y: 352.3353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326245109
 MonoBehaviour:
@@ -7811,7 +7811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b576d765af9cb9941b743e7a66dc1424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soInfo: {fileID: 11400000, guid: a0a26a3ca6cfeea46ba9804ea97f89cd, type: 2}
+  soInfo: {fileID: 11400000, guid: 66d5e156727b91b42aed2983c4b8d354, type: 2}
   prefabDex: {fileID: 8955504500617190509, guid: 560c6bf5ace70c940a6ede9d59e328a7,
     type: 3}
 --- !u!114 &1935304799
