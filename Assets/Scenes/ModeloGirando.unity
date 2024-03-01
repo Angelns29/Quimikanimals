@@ -1915,6 +1915,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1150310082342180685, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72dd159f072c72c41933f875c927cc9c, type: 2}
+    - target: {fileID: 1360648960332447762, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31a425c39d25d494e9d33ae8494c0147, type: 2}
     - target: {fileID: 2700494275862024144, guid: c68603aecba3c814085a98373bfcc65e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1999,6 +2009,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Models
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590059059236139280, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6e9142c3ba51664fb1ffd10b73bd959, type: 2}
+    - target: {fileID: 6590059059236139280, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6e9142c3ba51664fb1ffd10b73bd959, type: 2}
+    - target: {fileID: 6590059059236139280, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6e9142c3ba51664fb1ffd10b73bd959, type: 2}
+    - target: {fileID: 7205316460516818996, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205316460516818996, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205316460516818996, guid: c68603aecba3c814085a98373bfcc65e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
