@@ -20,7 +20,7 @@ public class Database : MonoBehaviour
         IDbConnection dbConnection = CreateAndOpenDatabase();
         IDbCommand dbCommandReadValues = dbConnection.CreateCommand();
 
-        dbCommandReadValues.CommandText = "SELECT num,elemento1,elemento2,nombre,altura,peso,habitat,descripcion FROM QUIMIKANIMALS";
+        dbCommandReadValues.CommandText = "SELECT * FROM QUIMIKANIMALS";
         using (IDataReader reader = dbCommandReadValues.ExecuteReader())
         {
             while (reader.Read())
@@ -74,7 +74,6 @@ public class Database : MonoBehaviour
             "\r\nnombreHabitat VARCHAR NOT NULL," +
             "\r\nPRIMARY KEY (id_habitat)" +
             "\r\n);" +
-            "\r\n" +
             "\r\nCREATE TABLE IF NOT EXISTS QUIMIKANIMALS (" +
             "\r\nnum INT," +
             "\r\nelemento1 INT," +
