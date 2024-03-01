@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class UIQuimikdexDescription : MonoBehaviour
 {
