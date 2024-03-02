@@ -997,7 +997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptionMenu: {fileID: 1956666420}
   mapMenu: {fileID: 8323663512754024845}
-  soInfo: {fileID: 11400000, guid: 66d5e156727b91b42aed2983c4b8d354, type: 2}
+  soInfo: {fileID: 11400000, guid: a0a26a3ca6cfeea46ba9804ea97f89cd, type: 2}
   nameText: {fileID: 723568943}
   heightText: {fileID: 1702615436}
   weightText: {fileID: 1914423075}
