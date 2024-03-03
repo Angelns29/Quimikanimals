@@ -126,12 +126,12 @@ TextureImporter:
       name: pez-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 30
-        width: 438
-        height: 450
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
