@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 0}
   destinationImage: {fileID: 0}
+  numGO: {fileID: 2665518024023878312}
 --- !u!1 &6405576610901491628
 GameObject:
   m_ObjectHideFlags: 0

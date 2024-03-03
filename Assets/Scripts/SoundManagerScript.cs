@@ -5,31 +5,30 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    [DoNotSerialize]public static SoundManagerScript soundManagerScript;
+    [DoNotSerialize]public static SoundManagerScript instance;
     [Header("------------Audio Source --------------")]
     [SerializeField]AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
     [Header("------------Audio Clips -------------")]
     public AudioClip background;
-    public AudioClip quimikanimal1;
-    public AudioClip quimikanimal2;
-    public AudioClip quimikanimal3;
-    public AudioClip quimikanimal4;
-    public AudioClip quimikanimal5;
-    public AudioClip quimikanimal6;
+    public AudioClip Osox;
+    public AudioClip Alejandra;
+    public AudioClip Fosh;
+    public AudioClip Patoto;
+    public AudioClip Cameyoyo;
+    public AudioClip Kotano;
 
 
     void Awake()
     {
-        if (soundManagerScript == null)
+        if (instance == null)
         {
-            soundManagerScript = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
 
         }
         else Destroy(gameObject);
-        musicSource.volume = 0.5f;
     }
 
     public void Start()
@@ -38,7 +37,23 @@ public class SoundManagerScript : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySFX(AudioClip audio) {
-        sfxSource.PlayOneShot(audio);
+    public void PlaySFX(string bichoName) {
+        switch (bichoName)
+        {
+            case "Osox":
+                sfxSource.PlayOneShot(Osox); break;
+            case "Alejandra":
+                sfxSource.PlayOneShot(Alejandra); break;
+            case "Fosh":
+                sfxSource.PlayOneShot(Fosh); break;
+            case "Patoto":
+                sfxSource.PlayOneShot(Patoto); break;
+            case "Cameyoyo":
+                sfxSource.PlayOneShot(Cameyoyo); break;
+            case "Kotano":
+                sfxSource.PlayOneShot(Kotano); break;
+            default:
+                break;
+        }
     }
 }
