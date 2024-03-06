@@ -7,8 +7,8 @@ public class SoundManagerScript : MonoBehaviour
 {
     [DoNotSerialize]public static SoundManagerScript instance;
     [Header("------------Audio Source --------------")]
-    [SerializeField]AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    [SerializeField] public AudioSource musicSource;
+    [SerializeField] public AudioSource sfxSource;
 
     [Header("------------Audio Clips -------------")]
     public AudioClip background;
@@ -33,10 +33,19 @@ public class SoundManagerScript : MonoBehaviour
 
     public void Start()
     {
+        musicSource.volume = 0.8f;
+        sfxSource.volume = 1;
         musicSource.clip = background;
         musicSource.Play();
     }
-
+    public float ReturnVolume()
+    {
+        return musicSource.volume;
+    }
+    public float ReturnSFX()
+    {
+        return sfxSource.volume;
+    }
     public void PlaySFX(string bichoName) {
         switch (bichoName)
         {
@@ -55,5 +64,11 @@ public class SoundManagerScript : MonoBehaviour
             default:
                 break;
         }
+        StartCoroutine(StopSong());
+    }
+    IEnumerator StopSong()
+    {
+        yield return new WaitForSeconds(5);
+        sfxSource.Stop();
     }
 }

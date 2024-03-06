@@ -15,16 +15,29 @@ public class UIManager : MonoBehaviour
     [Header("Start Menu")]
     public Slider musicSlider;
     public Slider sfxSlider;
-    public AudioSource musicSource;
-    public AudioSource sfxSource;
+    private SoundManagerScript musicManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        musicSlider.value = musicSource.volume;
-        sfxSlider.value = sfxSource.volume;
+        musicManager = SoundManagerScript.instance;
+        musicSlider.value = musicManager.ReturnVolume();
+        sfxSlider.value = musicManager.ReturnSFX();
+        if (PlayerPrefs.GetInt("Return")==1)
+        {
+            startMenu.SetActive(false);
+            dexMenu.SetActive(true);
+            PlayerPrefs.SetInt("Return", 0);
+        }
     }
-
+    public void SetVolume(float volume)
+    {
+        musicManager.musicSource.volume = volume;
+    }
+    public void SetSFX(float volume)
+    {
+        musicManager.sfxSource.volume = volume;
+    }
     public void GoToDex()
     {
         startMenu.SetActive(false);
@@ -63,13 +76,5 @@ public class UIManager : MonoBehaviour
     public void HideCreadits()
     {
         creditsMenu?.SetActive(false);
-    }
-    public void SetVolume(float volume)
-    {
-        musicSource.volume = volume;
-    }
-    public void SetVolumeSounds(float volume)
-    {
-        sfxSource.volume = volume;
     }
 }
