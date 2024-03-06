@@ -89,6 +89,7 @@ public class UIQuimikdexDescription : MonoBehaviour
     {
         PlayerPrefs.SetInt("Bicho", 0);
         PlayerPrefs.SetInt("Return", 1);
+        _soundManager.StopSound();
         SceneManager.LoadScene(0);
     }
     public void PlaySound()

@@ -71,4 +71,8 @@ public class SoundManagerScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         sfxSource.Stop();
     }
+    public void StopSound()
+    {
+        sfxSource.Stop();
+    }
 }
